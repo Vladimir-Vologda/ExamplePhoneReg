@@ -49,3 +49,6 @@ class CustomUserModel(AbstractBaseUser):
         if not self.slug:
             self.slug = slugify(self.name)
         super(CustomUserModel, self).save(**kwargs)
+
+    def full_name(self):
+        return f'{self.first_name} {self.last_name}'
